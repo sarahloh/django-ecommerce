@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Product
 
-# Create your views here.
+def all_products(request):
+    products = Product.objects.all()
+    return render(request, "products.html", {'products':products})
+
+
+def add_to_cart(request, id):
+    return redirect('index')
